@@ -6,7 +6,7 @@ print("I'm thinking of a number between 1 and 100.")
 
 
 lives = -1
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
 number = random.choice(range(1, 101))
 print(f"psst , The actual number is {number}") #Remove in production
 
@@ -14,8 +14,13 @@ game_over = False
 
 if difficulty == "easy":
     lives = 10
-else:
+elif difficulty == "hard":
     lives = 5
+#if user makes an error in the difficulty text, lives = -1, debug
+else:
+    print("Invalid difficulty level, Defaulting to 'Hard' ")
+    lives = 5
+
 
 while not game_over:
 
